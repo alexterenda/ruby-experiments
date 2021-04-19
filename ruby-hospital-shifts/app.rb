@@ -1,12 +1,11 @@
 # CLASSES
 
-# Opted to create a shared Doctor class, rather than separate PermanentDoctor and AgencyDoctor
-# classes inheriting from a Doctor class, as I imagine you might want to use the same Doctor
+# Opted to create a shared Doctor class rather than separate PermanentDoctor and AgencyDoctor
+# classes inheriting from a Doctor class. I imagine you might want to use the same Doctor
 # instance for all of a doctor's data regardless of whether they're working as a locum or
 # permanently at any given time.
 
 class Doctor
-
     def initialize(attributes = {})
         @id = attributes[:id]
         @grade_title = attributes[:grade_title]
@@ -21,53 +20,96 @@ class Doctor
     def set_rate_multiplier
         @employer_type == 'agency' ? 1.5 : 1
     end
-
 end
 
-doctor_1 = Doctor.new({
+class Department
+    def initialize(attributes = {})
+        @id = attributes[:id]
+        @name = attributes[:name]
+        @rate_multiplier = attributes[:rate_multiplier] || 1
+    end
+end
+
+
+class Shift
+    def initialize(attributes = {})
+        @id = attributes[:id]
+        @start_date = attributes[:start_date]
+        @start_time = attributes[:start_time]
+        @end_date = attributes[:end_date]
+        @end_time = attributes[:end_time]
+        
+        @department = attributes[:department]
+        @doctor = attributes[:doctor]
+
+
+        @total_hours = set_total_hours
+        @rate_multipier = set_rate_multiplier
+        @total_payment = set_total_payment
+
+    end
+
+    private
+
+    def set_total_hours
+    
+        # set total hours from dates and times
+    
+    end
+
+    def set_rate_multiplier
+
+        # Calculate rate_multipier from Department and Doctor rate multipliers
+
+    end
+
+    def set_total_payment
+
+        # Calculate total payment from hourly_rate and rate_multiplier
+
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+doctor = Doctor.new({
     id: 1,
     grade_title: 'GP',
     grade_hourly_rate: 45,
     employer_name: 'MWF Agency',
-    employer_type: 'hospital',
+    employer_type: 'agency',
     rate_multiplier: 1,
-})
-
-
-p doctor_2
-
-
-
-
-
-
-
-
-
-
-
-
+    })
+    
+department = Department.new({
+    id: 1,
+    name: 'General Medicine',
+    rate_multiplier: 1.5,
+    })
+    
+    p doctor
+    p department
+    
+        
+        
 # class ShiftRepository
 #     # @shifts = []
 
 #     # Private save_csv method
 # end
 
-# class Shift
-# # start_date, start_time, end_date, end_time, total_hours, department, permanent/agency_doctor, 
+        
+        
 
-# # Calculate total_hours in private method
-
-# # Calculate rate_multipier from Department and Doctor rate multipliers
-
-# # Calculate total payment from hourly_rate and rate_multiplier
-# end
-
-# class Department
-# # name, rate_multiplier
-# end
-
-
+        
 
 # # INSTANTIATIONS
 
