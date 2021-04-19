@@ -91,7 +91,7 @@ end
 
 # - - - - - - - - - - - - - - - - - - - -
 
-# INSTANTIATIONS
+# INITIALISATION
 
 # Departments
 
@@ -149,7 +149,6 @@ tt_hospital_doctor = Doctor.new({
 # Shifts
 
 mon_1 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,17,9),
     end_datetime: DateTime.new(2018,10,17,15),
     department: general_medicine,
@@ -157,7 +156,6 @@ mon_1 = Shift.new({
     })
 
 mon_2 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,17,20),
     end_datetime: DateTime.new(2018,10,18,8),
     department: general_medicine,
@@ -165,7 +163,6 @@ mon_2 = Shift.new({
     })
 
 tue_1 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,18,9),
     end_datetime: DateTime.new(2018,10,18,15),
     department: accident_and_emergency,
@@ -173,7 +170,6 @@ tue_1 = Shift.new({
     })
 
 tue_2 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,18,20),
     end_datetime: DateTime.new(2018,10,19,8),
     department: accident_and_emergency,
@@ -181,7 +177,6 @@ tue_2 = Shift.new({
     })
 
 wed_1 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,19,9),
     end_datetime: DateTime.new(2018,10,19,15),
     department: general_medicine,
@@ -189,7 +184,6 @@ wed_1 = Shift.new({
     })
 
 wed_2 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,19,20),
     end_datetime: DateTime.new(2018,10,20,8),
     department: general_medicine,
@@ -197,7 +191,6 @@ wed_2 = Shift.new({
     })
 
 thu_1 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,20,9),
     end_datetime: DateTime.new(2018,10,20,15),
     department: accident_and_emergency,
@@ -205,7 +198,6 @@ thu_1 = Shift.new({
     })
 
 thu_2 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,20,20),
     end_datetime: DateTime.new(2018,10,21,8),
     department: accident_and_emergency,
@@ -213,7 +205,6 @@ thu_2 = Shift.new({
     })
 
 fri_1 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,21,9),
     end_datetime: DateTime.new(2018,10,21,15),
     department: general_medicine,
@@ -221,7 +212,6 @@ fri_1 = Shift.new({
     })
 
 fri_2 = Shift.new({
-    id: 1,
     start_datetime: DateTime.new(2018,10,21,20),
     end_datetime: DateTime.new(2018,10,22,8),
     department: general_medicine,
@@ -243,9 +233,10 @@ end
 
 shift_repository.export_csv
 
-
 # - - - - - - - - - - - - - - - - - - - -
-
 
 # Comments
 
+# Doctor class - Opted for a single Doctor class, rather than separate AgencyDoctor and PermanentDoctor classes inheriting from a Doctor parent class. I understand that you may have liked me to demonstrate inheritance, but I feel this makes more sense in the context of a doctor likely changing between agency and permanent work at various points in their career.
+
+# Initialisation - I probably could have been clever and mapped over the shifts_array to dynamically create the date variables from a starting date, given there were essentially two types of shift. However, that would take a fair amount of time and didn't appear to be the focus of the challenge.
