@@ -141,7 +141,7 @@ tt_hospital_doctor = Doctor.new({
     id: 4,
     grade_title: 'Surgeon',
     grade_hourly_rate: 60,
-    employer_name: 'TT Agency',
+    employer_name: 'TT Hospital',
     employer_type: 'hospital',
     rate_multiplier: 1,
     })
@@ -158,14 +158,14 @@ mon_1 = Shift.new({
 mon_2 = Shift.new({
     start_datetime: DateTime.new(2018,10,17,20),
     end_datetime: DateTime.new(2018,10,18,8),
-    department: general_medicine,
+    department: accident_and_emergency,
     doctor: mwf_agency_doctor,
     })
 
 tue_1 = Shift.new({
     start_datetime: DateTime.new(2018,10,18,9),
     end_datetime: DateTime.new(2018,10,18,15),
-    department: accident_and_emergency,
+    department: general_medicine,
     doctor: tt_agency_doctor,
     })
 
@@ -186,14 +186,14 @@ wed_1 = Shift.new({
 wed_2 = Shift.new({
     start_datetime: DateTime.new(2018,10,19,20),
     end_datetime: DateTime.new(2018,10,20,8),
-    department: general_medicine,
+    department: accident_and_emergency,
     doctor: mwf_agency_doctor,
     })
 
 thu_1 = Shift.new({
     start_datetime: DateTime.new(2018,10,20,9),
     end_datetime: DateTime.new(2018,10,20,15),
-    department: accident_and_emergency,
+    department: general_medicine,
     doctor: tt_agency_doctor,
     })
 
@@ -214,7 +214,7 @@ fri_1 = Shift.new({
 fri_2 = Shift.new({
     start_datetime: DateTime.new(2018,10,21,20),
     end_datetime: DateTime.new(2018,10,22,8),
-    department: general_medicine,
+    department: accident_and_emergency,
     doctor: mwf_agency_doctor,
     })
 
